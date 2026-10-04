@@ -4,7 +4,7 @@
 
 **Free study guides, flashcards, mock exams and an online exam simulator.**
 
-[![Exam simulator](https://img.shields.io/badge/▶_Take_the_exam_simulator-ff9900?style=for-the-badge)](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner/)
+[![Exam simulator](https://img.shields.io/badge/▶_Take_the_exam_simulator-ff9900?style=for-the-badge)](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner-AIF-C01/)
 &nbsp;![Questions](https://img.shields.io/badge/practice_questions-296-232f3e?style=for-the-badge)
 &nbsp;![License](https://img.shields.io/badge/license-MIT-12805c?style=for-the-badge)
 
@@ -18,7 +18,7 @@
 
 | I want to… | Go to |
 |---|---|
-| **Test myself right now** | [▶ Exam simulator](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner/) |
+| **Test myself right now** | [▶ Exam simulator](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner-AIF-C01/) |
 | **Learn from scratch** | [Domain 1 guide](docs/domain-1-fundamentals-of-ai-and-ml.md) |
 | **Revise quickly** | [Fast Track](docs/domain-1-fast-track/README.md) or [Cheat sheet](docs/domain-1-fast-track/CHEAT-SHEET.md) |
 | **Cram before the exam** | [Ultra Fast Learn](docs/domain-1-fast-track/ULTRA-FAST-LEARN.md) |
@@ -78,7 +78,7 @@ Every testable concept appears in all three depths. Only the explanation gets sh
 | [Cross-domain scenarios](docs/cross-domain-scenario-questions.md) | 30 | Questions that need two or more domains at once |
 | Domain guides | ~85 | Practice questions at the end of each guide |
 
-> 💡 All 130 mock-exam questions, plus 166 extra edge-case questions (look-alike services, negation traps, select-two), are in the [online simulator](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner/) with instant scoring.
+> 💡 All 130 mock-exam questions, plus 166 extra edge-case questions (look-alike services, negation traps, select-two), are in the [online simulator](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner-AIF-C01/) with instant scoring.
 
 Log your attempts in the [study progress tracker](docs/study-progress-tracker.md).
 
