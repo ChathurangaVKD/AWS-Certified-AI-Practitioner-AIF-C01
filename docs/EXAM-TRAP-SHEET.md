@@ -1,7 +1,7 @@
 # 🪤 AIF-C01 Exam Trap Sheet (last-day review)
 
 Read top to bottom in about 45 minutes. Each row is **"if you see X, pick Y, and don't fall for Z"**.
-Written from the official exam guide domains; it is original wording, not copied from any vendor question bank.
+Written from the public exam guide domains in original wording. It contains **no real exam questions and no text copied from any exam-prep vendor**. It is an independent study aid, not affiliated with or endorsed by AWS, and should be checked against the [official exam guide](https://aws.amazon.com/certification/certified-ai-practitioner/).
 
 **Exam facts:** 65 questions (50 scored, 15 unscored) · 90 min · pass 700/1000 · no penalty for guessing, so never leave a blank.
 **Weights:** D1 AI/ML fundamentals 20% · D2 GenAI fundamentals 24% · D3 FM applications 28% · D4 Responsible AI 14% · D5 Security/governance 14%.
@@ -359,9 +359,9 @@ Fairness · Explainability · Privacy & security · Transparency · Veracity & r
 
 ---
 
-## 8. Traps from my own practice-test misses (concept notes, own wording)
+## 8. Common mistakes from practice testing (concept notes)
 
-Source: my missed questions from the Free Test, Practice Test 1, Additional Questions and all five section tests (concept notes only, no question text).
+These are general concepts that are easy to get wrong when practising. They are paraphrased rules, not questions or answer options from any test.
 
 | Concept | Rule to remember |
 |---|---|
@@ -399,9 +399,9 @@ Source: my missed questions from the Free Test, Practice Test 1, Additional Ques
 | Jailbreaking | Tricking the model into producing disallowed content. |
 | Interpretability | Humans can understand the model's inner workings (vs explainability = why a given output). |
 | Bias test: prompt stereotyping | Checks whether a model encodes stereotypes across prompt variations. |
-| Prompt-attack kinds | Persona switch, ignoring the prompt template, extracting the conversation history, extracting the prompt template. |
+| Prompt-attack kinds | Attacks try to switch the persona, override the prompt template, or extract the system prompt or conversation history. |
 | Bedrock monitoring | **CloudWatch** for health/performance. Invocation logging goes to a CloudWatch Logs log group (or S3). |
-| Bedrock benefits | Lower cost/complexity and access to cutting-edge FMs without in-house expertise. Not "full training control", "guaranteed best performance" or "no ethical duty". |
+| Bedrock benefits | Lower cost and complexity, and managed access to many FMs. It does not guarantee the best accuracy and does not remove your responsibility for ethical use. |
 
 ## 7b. Extra edge cases worth a last look
 
@@ -495,3 +495,6 @@ Source: my missed questions from the Free Test, Practice Test 1, Additional Ques
 - [ ] Answer every question; flag and return; watch the clock (~80 s per question)
 
 > Tip: AWS adds and renames services (for example CodeWhisperer became Q Developer). Verify any single name against the current official exam guide.
+
+---
+**Integrity note:** use this sheet to learn concepts. Do not share, request or trade actual exam content: it breaks the AWS Certification Program agreement and can lead to a banned certification.

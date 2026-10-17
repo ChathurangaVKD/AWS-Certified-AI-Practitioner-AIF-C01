@@ -22,7 +22,7 @@
 | **Learn from scratch** | [Domain 1 guide](docs/domain-1-fundamentals-of-ai-and-ml.md) |
 | **Revise quickly** | [Fast Track](docs/domain-1-fast-track/README.md) or [Cheat sheet](docs/domain-1-fast-track/CHEAT-SHEET.md) |
 | **Cram before the exam** | [Ultra Fast Learn](docs/domain-1-fast-track/ULTRA-FAST-LEARN.md) |
-| **Last-day trap review** | [Exam trap sheet](docs/EXAM-TRAP-SHEET.md) |
+| **Last-day trap review** | [Exam trap sheet](docs/EXAM-TRAP-SHEET.md): look-alike services, edge cases, "if you see X pick Y" rules for all 5 domains |
 | **Plan my weeks** | [Exam preparation strategy](docs/exam-preparation-strategy.md) |
 
 ## 🖥️ Exam simulator
@@ -107,6 +107,10 @@ Ready-made 1, 2 and 4-week plans: [exam preparation strategy](docs/exam-preparat
 No. They are original practice questions written for this repo, so they teach the material rather than leak the exam.
 </details>
 
+<details><summary><b>Is this a brain dump? Can I contribute real exam questions?</b></summary>
+No, and please don't. Everything here is original or paraphrased from public AWS documentation and the public exam guide. Contributions containing real exam questions, answer options copied from exam-prep courses, or paid-course material will be rejected. Sharing actual exam content violates the AWS Certification Program agreement.
+</details>
+
 <details><summary><b>What score do I need?</b></summary>
 The real exam scales scores from 100 to 1000 and passes at 700. The simulator uses about 72% correct as a rough estimate. AWS does not publish the exact conversion.
 </details>
@@ -126,10 +130,10 @@ It is plain HTML and JavaScript with no dependencies. The question bank is gener
 
 ## 🤝 Contributing
 
-Found a mistake or an outdated answer? [Open an issue](../../issues) or send a pull request. See [SECURITY.md](SECURITY.md) to report a vulnerability.
+Found a mistake or an outdated answer? [Open an issue](../../issues) or send a pull request. **Content rules:** write in your own words; never submit real exam questions, brain-dump material or text copied from paid courses or other vendors. See [SECURITY.md](SECURITY.md) to report a vulnerability.
 
 ## ⚖️ Disclaimer and license
 
-Independent community resource, **not affiliated with, endorsed by, or sponsored by Amazon Web Services**. AWS and service names are trademarks of Amazon.com, Inc. or its affiliates. Content may contain errors or become outdated, so always verify against the [official exam guide](https://aws.amazon.com/certification/certified-ai-practitioner/) and AWS documentation.
+Independent community resource, **not affiliated with, endorsed by, or sponsored by Amazon Web Services**. It contains no real exam questions and is not a guarantee of passing. AWS and service names are trademarks of Amazon.com, Inc. or its affiliates. Content may contain errors or become outdated, so always verify against the [official exam guide](https://aws.amazon.com/certification/certified-ai-practitioner/) and AWS documentation.
 
 Released under the [MIT License](LICENSE).
