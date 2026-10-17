@@ -22,6 +22,7 @@
 | **Learn from scratch** | [Domain 1 guide](docs/domain-1-fundamentals-of-ai-and-ml.md) |
 | **Revise quickly** | [Fast Track](docs/domain-1-fast-track/README.md) or [Cheat sheet](docs/domain-1-fast-track/CHEAT-SHEET.md) |
 | **Cram before the exam** | [Ultra Fast Learn](docs/domain-1-fast-track/ULTRA-FAST-LEARN.md) |
+| **Last-day trap review** | [Exam trap sheet](docs/EXAM-TRAP-SHEET.md) |
 | **Plan my weeks** | [Exam preparation strategy](docs/exam-preparation-strategy.md) |
 
 ## 🖥️ Exam simulator
