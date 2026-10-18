@@ -401,6 +401,17 @@ These are general concepts that are easy to get wrong when practising. They are 
 | Bias test: prompt stereotyping | Checks whether a model encodes stereotypes across prompt variations. |
 | Prompt-attack kinds | Attacks try to switch the persona, override the prompt template, or extract the system prompt or conversation history. |
 | Bedrock monitoring | **CloudWatch** for health/performance. Invocation logging goes to a CloudWatch Logs log group (or S3). |
+| AUC | Compare classifiers across all thresholds, independent of one cutoff. |
+| JumpStart | Browse and deploy many pre-built models and algorithms inside SageMaker. |
+| Comparing FMs | Combine **human evaluation** with **benchmark datasets**. One alone misses quality or comparability. |
+| Fine-tuning data | Must reflect the real-world distribution the model will see, and be clean and representative. |
+| Top-p / top-k | Filter out low-probability tokens from sampling. |
+| Prompt leaking defences | Sanitize and validate inputs, and filter outputs. Both directions. |
+| Jailbreak risk | The main concern is output that violates policy or safety rules. |
+| Data protection pair | **HTTPS/TLS** in transit and **server-side encryption** at rest. |
+| BLEU/ROUGE use | Text summarization and machine translation. |
+| Computer vision | Image/video understanding tasks: pick it for visual content. |
+| Bedrock latency factors | Provisioned throughput, model size and complexity, and network latency between app and model. |
 | Bedrock benefits | Lower cost and complexity, and managed access to many FMs. It does not guarantee the best accuracy and does not remove your responsibility for ethical use. |
 
 ## 7b. Extra edge cases worth a last look
