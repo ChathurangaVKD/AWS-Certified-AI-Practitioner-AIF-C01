@@ -491,6 +491,19 @@ These are general concepts that are easy to get wrong when practising. They are 
 | Data governance strategies | Data lifecycle, logging, residency, monitoring, retention, source citation, lineage. |
 | Standards | ISO 27001 (security), **ISO 42001** (AI management), SOC, NIST AI RMF, EU AI Act (risk tiers), GDPR, HIPAA. |
 
+## 7d. Weak-spot revision by exam task
+
+Priority order after a self-assessment (lowest score first). Re-read the linked sections of this sheet in this order.
+
+| Task | What to drill |
+|---|---|
+| **3.4 Evaluate FM performance** | Metric to task: ROUGE (summaries), BLEU (translation), BERTScore (semantic similarity), perplexity (fluency), F1/AUC (classification), MSE/RMSE (regression). Use human evaluation plus benchmarks, and check business outcomes (conversion, efficiency), not just model scores. |
+| **1.2 Practical AI use cases** | Match the service to the need: Rekognition, Textract, Comprehend, Transcribe, Polly, Translate, Lex vs Kendra, Personalize, Forecast, Fraud Detector. Also know when **not** to use AI (simple rules suffice, no data). |
+| **4.2 Transparent and explainable models** | Transparency = how it was built and used (Model Cards, AI Service Cards). Explainability = why one output (Clarify, SHAP). Interpretability = understandable internals. Simpler models are more explainable but may be less accurate. |
+| **5.2 Governance and compliance** | Artifact vs Audit Manager, Config, CloudTrail, Macie, Lake Formation. ISO 42001, NIST AI RMF, EU AI Act, GDPR, HIPAA. Data lineage, retention, residency. |
+| **3.1-3.3 FM design, prompting, training** | RAG vs fine-tuning vs continued pre-training, Provisioned Throughput for custom models, prompt techniques (zero/few-shot, chain-of-thought, negative prompts), temperature/top-p/top-k. |
+| **2.3 AWS GenAI infrastructure** | Bedrock vs JumpStart, Trainium vs Inferentia, Knowledge Bases, Agents, Guardrails. |
+
 ## 7. Final-hour checklist
 
 - [ ] Can I name the AI service for each of: image, doc, text, speech, translate, chatbot, search, recommend, forecast, fraud?
