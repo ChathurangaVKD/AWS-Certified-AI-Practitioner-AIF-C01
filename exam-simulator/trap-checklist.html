@@ -6,181 +6,309 @@
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AIF-C01 Exam Trap Checklist</title>
-<meta name="description" content="Tick off every AIF-C01 exam trap as you review it. Progress is saved in your browser only.">
+<meta name="description" content="Work through every AIF-C01 exam trap: tick them off, flag the tricky ones, or quiz yourself flashcard-style. Progress is saved in your browser only.">
 <style>
-:root{--bg:#f3f5f9;--card:#fff;--text:#18202e;--muted:#667085;--line:#e0e5ee;--accent:#ff9900;--accent-d:#b35f00;--accent-bg:#fff3de;--ok:#12805c;--okbg:#e4f6ee;--nav:#232f3e;--shadow:0 1px 3px rgba(16,24,40,.08);--r:12px}
-:root[data-theme=dark]{--bg:#0f131a;--card:#1a212c;--text:#e8ecf2;--muted:#98a2b3;--line:#2b3442;--accent-bg:#3a2d14;--accent-d:#ffb74d;--ok:#4cc79a;--okbg:#12342a;--nav:#0a0e14;--shadow:0 1px 3px rgba(0,0,0,.4)}
+:root{--bg:#f4f6fa;--card:#fff;--text:#172033;--muted:#5d6b82;--line:#e2e7f0;--accent:#ff9900;--accent-d:#a85a00;--accent-bg:#fff3de;--ok:#0f7a56;--okbg:#e6f6ee;--flag:#c2410c;--flagbg:#fff1e6;--nav:#232f3e;--shadow:0 1px 2px rgba(16,24,40,.06),0 4px 14px rgba(16,24,40,.05);--r:14px}
+:root[data-theme=dark]{--bg:#0e121a;--card:#171e29;--text:#e9edf4;--muted:#9aa6ba;--line:#2a3343;--accent-bg:#3a2d14;--accent-d:#ffb74d;--ok:#4cc79a;--okbg:#10322a;--flag:#ff9f6b;--flagbg:#3a2417;--nav:#090c12;--shadow:0 1px 3px rgba(0,0,0,.45)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-header{position:sticky;top:0;z-index:10;background:var(--nav);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-.bar{max-width:900px;margin:0 auto;padding:10px 16px}
-.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
-h1{font-size:1.1rem;margin:0;flex:1 1 auto}
-.pct{font-weight:700;font-variant-numeric:tabular-nums}
-.meter{height:8px;border-radius:99px;background:rgba(255,255,255,.2);overflow:hidden;margin-top:8px}
-.meter>i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
-main{max-width:900px;margin:0 auto;padding:16px}
-.tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-.tools input[type=search]{flex:1 1 200px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
-button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:8px 12px}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:8px 14px;transition:border-color .15s,background .15s}
 button:hover{border-color:var(--accent)}
-button[aria-pressed=true]{background:var(--accent-bg);border-color:var(--accent);color:var(--accent-d);font-weight:600}
-header button{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
-details.sec{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:12px}
-details.sec>summary{cursor:pointer;list-style:none;padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-weight:700}
+button[aria-pressed=true]{background:var(--accent-bg);border-color:var(--accent);color:var(--accent-d);font-weight:700}
+button.primary{background:var(--accent);border-color:var(--accent);color:#1b1200;font-weight:700}
+button.primary:hover{filter:brightness(1.05)}
+header{position:sticky;top:0;z-index:20;background:var(--nav);color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:10px 0}
+.top h1{font-size:1.05rem;margin:0;flex:1 1 auto;white-space:nowrap}
+.top .pct{font-weight:700;font-variant-numeric:tabular-nums;font-size:.95rem}
+header button{background:transparent;color:#fff;border-color:rgba(255,255,255,.3);padding:6px 10px}
+header .primary{color:#1b1200;background:var(--accent)}
+.meter{height:6px;background:rgba(255,255,255,.18)}
+.meter>i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+main{padding:18px 0 50px}
+.hero{background:linear-gradient(135deg,var(--nav),#33465e);color:#fff;border-radius:var(--r);padding:18px 20px;margin-bottom:16px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;box-shadow:var(--shadow)}
+.hero .big{font-size:2.4rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.hero .sub{opacity:.85;font-size:.95rem}
+.hero .grow{flex:1 1 240px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:18px}
+.card{display:flex;flex-direction:column;gap:6px;text-align:left;padding:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c)}
+.card .n{font-size:.82rem;font-weight:700;line-height:1.3;min-height:2.6em;padding-left:4px}
+.card .bar{height:6px;border-radius:9px;background:var(--line);overflow:hidden;margin-left:4px}
+.card .bar i{display:block;height:100%;background:var(--c);width:0;transition:width .3s}
+.card .c{font-size:.78rem;color:var(--muted);padding-left:4px;font-variant-numeric:tabular-nums}
+.card.full .c{color:var(--ok);font-weight:700}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;align-items:center}
+.tools input[type=search]{flex:1 1 220px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+.seg{display:inline-flex;gap:6px;flex-wrap:wrap}
+.more{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.more button{font-size:.85rem;padding:6px 10px;color:var(--muted)}
+details.sec{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:12px;scroll-margin-top:90px}
+details.sec>summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-weight:700;border-left:5px solid var(--c);border-radius:var(--r)}
 details.sec>summary::-webkit-details-marker{display:none}
-details.sec>summary::before{content:"▸";color:var(--muted)}
-details.sec[open]>summary::before{content:"▾"}
-.count{margin-left:auto;font-size:.85rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+details.sec>summary::after{content:"▾";margin-left:6px;color:var(--muted);transition:transform .2s}
+details.sec:not([open])>summary::after{transform:rotate(-90deg)}
+.count{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
 .count.full{color:var(--ok)}
-.sbody{padding:0 14px 12px}
-h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:14px 0 6px}
-.item{display:flex;gap:10px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;margin-bottom:6px;cursor:pointer;align-items:flex-start}
+.sbody{padding:2px 16px 14px}
+h3{font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:16px 0 8px}
+.item{display:flex;gap:12px;padding:11px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;align-items:flex-start;background:var(--card);transition:background .15s,border-color .15s}
 .item:hover{border-color:var(--accent)}
-.item input{margin-top:5px;width:18px;height:18px;flex:none;accent-color:var(--ok)}
-.item.done{background:var(--okbg)}
-.item.done .t{text-decoration:line-through;text-decoration-color:var(--muted)}
-.t{font-weight:600}
-.d{color:var(--muted);font-size:.92rem;margin-top:2px}
-.d b{color:var(--text)}
-code{background:var(--bg);padding:1px 5px;border-radius:5px;font-size:.9em}
-.sec-actions{display:flex;gap:8px;margin:10px 0 0}
-.sec-actions button{font-size:.85rem;padding:5px 10px}
-.empty{color:var(--muted);text-align:center;padding:30px 0}
-.note{color:var(--muted);font-size:.85rem;margin:18px 0 40px}
+.item.done{background:var(--okbg);border-color:transparent}
+.item.done .t{color:var(--muted);text-decoration:line-through}
+.item.flagged{border-left:4px solid var(--flag)}
+.item label{display:flex;gap:12px;flex:1;cursor:pointer;align-items:flex-start}
+.item input{margin-top:4px;width:20px;height:20px;flex:none;accent-color:var(--ok)}
+.t{font-weight:700;line-height:1.4}
+.fields{margin-top:6px;display:grid;gap:5px}
+.f{display:flex;gap:8px;align-items:baseline;font-size:.94rem}
+.f b{flex:none;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;background:var(--bg);border:1px solid var(--line);color:var(--muted);padding:1px 7px;border-radius:99px;min-width:4.2em;text-align:center}
+.f.rule b{background:var(--accent-bg);color:var(--accent-d);border-color:transparent}
+.flag{flex:none;background:none;border:0;font-size:1.15rem;opacity:.35;padding:2px 4px;line-height:1}
+.flag:hover,.flag[aria-pressed=true]{opacity:1;background:none}
+code{background:var(--bg);padding:1px 6px;border-radius:6px;font-size:.88em;border:1px solid var(--line)}
+.sec-actions{display:flex;gap:8px;margin-top:12px}
+.sec-actions button{font-size:.82rem;padding:5px 10px}
+.empty{color:var(--muted);text-align:center;padding:36px 0}
+.note{color:var(--muted);font-size:.85rem;margin:20px 0}
 .sr{position:absolute;left:-9999px}
+.banner{display:none;background:var(--okbg);color:var(--ok);border:1px solid var(--ok);border-radius:var(--r);padding:14px 18px;margin-bottom:16px;font-weight:700;text-align:center}
+.banner.on{display:block}
+/* quiz overlay */
+#quiz{position:fixed;inset:0;background:rgba(8,12,20,.72);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+#quiz.on{display:flex}
+.qbox{background:var(--card);border-radius:18px;width:100%;max-width:640px;max-height:92vh;overflow:auto;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.qhead{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.85rem;margin-bottom:10px}
+.qhead .qbar{flex:1;height:6px;border-radius:9px;background:var(--line);overflow:hidden}
+.qhead .qbar i{display:block;height:100%;background:var(--accent);width:0}
+.qsec{font-size:.78rem;font-weight:700;color:var(--accent-d);text-transform:uppercase;letter-spacing:.06em}
+.qtitle{font-size:1.35rem;font-weight:800;line-height:1.35;margin:8px 0 14px}
+.qhint{color:var(--muted);font-size:.92rem;margin-bottom:12px}
+.qans{display:none;margin-bottom:16px}
+.qans.on{display:grid;gap:8px}
+.qbtns{display:flex;flex-wrap:wrap;gap:8px}
+.qbtns button{flex:1 1 130px}
+.qkeys{color:var(--muted);font-size:.78rem;margin-top:12px;text-align:center}
+kbd{background:var(--bg);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 5px;font:inherit;font-size:.8em}
+@media (max-width:560px){.top h1{font-size:.95rem;white-space:normal}.hero .big{font-size:2rem}.f{flex-direction:column;gap:2px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<header><div class="bar">
-  <div class="row">
+<header>
+  <div class="wrap top">
     <h1>🪤 AIF-C01 Exam Trap Checklist</h1>
-    <span class="pct" id="pct" aria-live="polite">0%</span>
+    <span class="pct" id="pct" aria-live="polite">0 / 0</span>
+    <button class="primary" id="quizbtn">🎯 Quiz me</button>
     <button id="theme" aria-label="Toggle dark mode">🌓</button>
   </div>
   <div class="meter" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100" id="meter"><i id="fill"></i></div>
-</div></header>
-<main>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <div class="big" id="bigpct">0%</div>
+    <div class="grow">
+      <div id="herotxt" style="font-weight:700">Ready when you are</div>
+      <div class="sub" id="herosub"></div>
+    </div>
+  </div>
+  <div class="banner" id="banner">🎉 Every trap done! Re-run <b>Quiz me</b> on flagged ones, then go and pass that exam.</div>
+  <div class="cards" id="cards" aria-label="Progress by section"></div>
+
   <div class="tools">
-    <input type="search" id="q" placeholder="Search traps (e.g. Guardrails, recall)" aria-label="Search traps">
-    <button id="f-all" aria-pressed="true">All</button>
-    <button id="f-todo" aria-pressed="false">To do</button>
-    <button id="f-done" aria-pressed="false">Done</button>
+    <input type="search" id="q" placeholder="Search traps, e.g. Guardrails, recall, Textract" aria-label="Search traps">
   </div>
   <div class="tools">
-    <button id="expand">Expand all</button>
-    <button id="collapse">Collapse all</button>
-    <button id="export">Export progress</button>
-    <button id="import">Import progress</button>
-    <button id="reset">Reset</button>
-    <input type="file" id="file" accept="application/json" class="sr" tabindex="-1">
+    <div class="seg" role="group" aria-label="Filter">
+      <button id="f-all" aria-pressed="true">All</button>
+      <button id="f-todo" aria-pressed="false">To do</button>
+      <button id="f-done" aria-pressed="false">Done</button>
+      <button id="f-flag" aria-pressed="false">⚑ Flagged</button>
+    </div>
+    <div class="more">
+      <button id="expand">Expand all</button>
+      <button id="collapse">Collapse all</button>
+      <button id="export">Export</button>
+      <button id="import">Import</button>
+      <button id="reset">Reset</button>
+      <input type="file" id="file" accept="application/json" class="sr" tabindex="-1">
+    </div>
   </div>
+
   <div id="list"></div>
-  <p class="note">Progress is saved only in this browser (local storage). Nothing is sent anywhere. Use <b>Export progress</b> to back it up or move devices. The traps come from <code>docs/EXAM-TRAP-SHEET.md</code> and are original study notes, not real exam questions.</p>
+  <p class="note">Progress and flags are saved only in this browser (local storage). Nothing is sent anywhere. Use <b>Export</b> to back it up or move devices. Traps come from <code>docs/EXAM-TRAP-SHEET.md</code> and are original study notes, not real exam questions.</p>
 </main>
+
+<div id="quiz" role="dialog" aria-modal="true" aria-label="Quiz mode">
+  <div class="qbox">
+    <div class="qhead"><span id="qpos"></span><div class="qbar"><i id="qfill"></i></div><button id="qclose" aria-label="Close quiz">✕</button></div>
+    <div class="qsec" id="qsec"></div>
+    <div class="qtitle" id="qtitle"></div>
+    <div class="qhint" id="qhint">Think of the answer first, then reveal it.</div>
+    <div class="qans" id="qans"></div>
+    <div class="qbtns" id="qbtns"></div>
+    <div class="qkeys"><kbd>Space</kbd> reveal · <kbd>1</kbd> got it · <kbd>2</kbd> review later · <kbd>→</kbd> skip · <kbd>Esc</kbd> close</div>
+  </div>
+</div>
+
 <script src="traps.js"></script>
 <script>
 (function(){
 "use strict";
-var KEY="aifc01-trap-progress-v1", TKEY="aifc01-trap-theme";
-var DATA=window.TRAPS||[], done={}, filter="all", term="";
+var KEY="aifc01-trap-progress-v1", FKEY="aifc01-trap-flags-v1", TKEY="aifc01-trap-theme";
+var COLORS=["#6366f1","#0ea5e9","#14b8a6","#22c55e","#eab308","#f97316","#ef4444","#ec4899","#a855f7","#8b5cf6","#06b6d4","#84cc16"];
+var DATA=window.TRAPS||[], done={}, flags={}, filter="all", term="", openState={};
 function ls(op,k,v){try{return op==="g"?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){return null}}
-try{done=JSON.parse(ls("g",KEY)||"{}")||{}}catch(e){done={}}
-function save(){ls("s",KEY,JSON.stringify(done))}
-var theme=ls("g",TKEY); if(theme)document.documentElement.dataset.theme=theme;
-
-function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
-function md(s){return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/`(.+?)`/g,"<code>$1</code>")}
+function load(k){try{return JSON.parse(ls("g",k)||"{}")||{}}catch(e){return {}}}
+done=load(KEY); flags=load(FKEY);
+function save(){ls("s",KEY,JSON.stringify(done));ls("s",FKEY,JSON.stringify(flags))}
+var th=ls("g",TKEY); if(th)document.documentElement.dataset.theme=th;
 function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function md(s){return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/`(.+?)`/g,"<code>$1</code>")}
+function short(t){t=t.replace(/^\d+[a-z]?\.\s*/,"").replace(/\s*\(.*$/,"");var m=t.match(/^Domain (\d):\s*(.*)$/);return m?"D"+m[1]+" · "+m[2]:t}
 
-var all=[]; DATA.forEach(function(s){s.groups.forEach(function(g){g.items.forEach(function(i){all.push(i.id)})})});
-function secIds(s){var a=[];s.groups.forEach(function(g){g.items.forEach(function(i){a.push(i.id)})});return a}
-function countDone(ids){return ids.filter(function(i){return done[i]}).length}
+var byId={}, all=[];
+DATA.forEach(function(s,si){s._c=COLORS[si%COLORS.length];s.groups.forEach(function(g){g.items.forEach(function(i){i._s=s;i._g=g.title;byId[i.id]=i;all.push(i)})})});
+function secItems(s){var a=[];s.groups.forEach(function(g){a=a.concat(g.items)});return a}
+function nDone(a){return a.filter(function(i){return done[i.id]}).length}
 
+function fieldsHtml(it){
+  var c=it.cells,h=it.head; if(!h||c.length<2)return "";
+  return '<div class="fields">'+c.slice(1).map(function(x,n){if(!x)return "";var lab=h[n+1]||"";return '<div class="f'+(/^rule|fix|answer|pick|use|meaning/i.test(lab)?" rule":"")+'"><b>'+esc(lab)+'</b><span>'+md(x)+'</span></div>'}).join("")+'</div>';
+}
 function itemHtml(it){
-  var c=it.cells, head=it.head, d="";
-  if(head&&c.length>1){d=c.slice(1).map(function(x,n){return x?"<b>"+md(head[n+1]||"")+":</b> "+md(x):""}).filter(Boolean).join("<br>")}
-  var chk=done[it.id]?" checked":"";
-  return '<label class="item'+(done[it.id]?" done":"")+'" data-id="'+esc(it.id)+'"><input type="checkbox"'+chk+'><span><span class="t">'+md(c[0])+'</span>'+(d?'<div class="d">'+d+'</div>':"")+'</span></label>';
+  var d=!!done[it.id],f=!!flags[it.id];
+  return '<div class="item'+(d?" done":"")+(f?" flagged":"")+'" data-id="'+esc(it.id)+'"><label><input type="checkbox"'+(d?" checked":"")+'><span><span class="t">'+md(it.cells[0])+'</span>'+fieldsHtml(it)+'</span></label><button class="flag" aria-pressed="'+f+'" title="Flag to review again" aria-label="Flag to review again">⚑</button></div>';
 }
 function visible(it){
-  var isDone=!!done[it.id];
-  if(filter==="todo"&&isDone)return false;
-  if(filter==="done"&&!isDone)return false;
-  if(term){var t=(it.cells.join(" ")).toLowerCase(); if(t.indexOf(term)<0)return false}
+  var d=!!done[it.id];
+  if(filter==="todo"&&d)return false;
+  if(filter==="done"&&!d)return false;
+  if(filter==="flag"&&!flags[it.id])return false;
+  if(term&&it.cells.join(" ").toLowerCase().indexOf(term)<0)return false;
   return true;
 }
-var openState={};
 function render(){
-  var html="", shown=0;
+  var html="";
   DATA.forEach(function(s,si){
-    var ids=secIds(s), n=countDone(ids), body="";
+    var items=secItems(s), n=nDone(items), body="";
     s.groups.forEach(function(g){
-      var items=g.items.filter(visible);
-      if(!items.length)return;
-      shown+=items.length;
-      body+=(g.title?"<h3>"+md(g.title)+"</h3>":"")+items.map(itemHtml).join("");
+      var its=g.items.filter(visible); if(!its.length)return;
+      body+=(g.title?"<h3>"+md(g.title)+"</h3>":"")+its.map(itemHtml).join("");
     });
     if(!body&&(term||filter!=="all"))return;
-    var open=openState[s.id]!==undefined?openState[s.id]:(si===0);
-    if(term)open=true;
-    html+='<details class="sec" data-sec="'+esc(s.id)+'"'+(open?" open":"")+'><summary>'+md(s.title)+'<span class="count'+(n===ids.length?" full":"")+'">'+n+" / "+ids.length+(n===ids.length?" ✓":"")+'</span></summary><div class="sbody">'+body+
-      '<div class="sec-actions"><button data-all="'+esc(s.id)+'">Mark section done</button><button data-none="'+esc(s.id)+'">Clear section</button></div></div></details>';
+    var open=openState[s.id]!==undefined?openState[s.id]:(si===0); if(term)open=true;
+    html+='<details class="sec" id="sec-'+esc(s.id)+'" data-sec="'+esc(s.id)+'" style="--c:'+s._c+'"'+(open?" open":"")+'><summary>'+md(s.title)+'<span class="count'+(n===items.length?" full":"")+'">'+n+" / "+items.length+(n===items.length?" ✓":"")+'</span></summary><div class="sbody">'+body+'<div class="sec-actions"><button data-all="'+esc(s.id)+'">Mark section done</button><button data-none="'+esc(s.id)+'">Clear section</button></div></div></details>';
   });
-  $("list").innerHTML=html||'<p class="empty">No traps match.</p>';
-  progress();
+  $("list").innerHTML=html||'<p class="empty">Nothing matches. Try another filter or search.</p>';
+  dash();
 }
-function progress(){
-  var n=countDone(all), p=all.length?Math.round(100*n/all.length):0;
-  $("pct").textContent=n+" / "+all.length+" ("+p+"%)";
+function dash(){
+  var n=nDone(all),p=all.length?Math.round(100*n/all.length):0,left=all.length-n,fl=Object.keys(flags).filter(function(k){return flags[k]&&byId[k]}).length;
+  $("pct").textContent=n+" / "+all.length;
   $("fill").style.width=p+"%"; $("meter").setAttribute("aria-valuenow",p);
+  $("bigpct").textContent=p+"%";
+  $("herotxt").textContent=left===0?"All traps done":(n===0?"Let's start: "+all.length+" traps to go":left+" traps left");
+  $("herosub").textContent=n+" done"+(fl?" · "+fl+" flagged for review":"")+" · est. "+Math.max(1,Math.round(left*0.15))+" min to finish";
+  $("banner").className="banner"+(left===0&&all.length?" on":"");
   document.title=(p?p+"% · ":"")+"AIF-C01 Exam Trap Checklist";
+  $("cards").innerHTML=DATA.map(function(s){
+    var it=secItems(s),d=nDone(it),pp=it.length?Math.round(100*d/it.length):0;
+    return '<button class="card'+(d===it.length?" full":"")+'" data-jump="'+esc(s.id)+'" style="--c:'+s._c+'"><span class="n">'+esc(short(s.title))+'</span><span class="bar"><i style="width:'+pp+'%"></i></span><span class="c">'+d+" / "+it.length+(d===it.length?" ✓":" · "+pp+"%")+'</span></button>';
+  }).join("");
 }
-function updateCounts(){
-  DATA.forEach(function(s){
-    var d=document.querySelector('details[data-sec="'+s.id+'"]'); if(!d)return;
-    var ids=secIds(s), n=countDone(ids), c=d.querySelector(".count");
-    c.textContent=n+" / "+ids.length+(n===ids.length?" ✓":""); c.className="count"+(n===ids.length?" full":"");
-  });
-  progress();
+function patch(lab){ // update one row + counts without a full re-render
+  var it=byId[lab.dataset.id]; lab.classList.toggle("done",!!done[it.id]); lab.classList.toggle("flagged",!!flags[it.id]);
+  var s=it._s,d=document.querySelector('details[data-sec="'+s.id+'"]'); if(d){var items=secItems(s),n=nDone(items),c=d.querySelector(".count");c.textContent=n+" / "+items.length+(n===items.length?" ✓":"");c.className="count"+(n===items.length?" full":"")}
+  dash();
 }
 $("list").addEventListener("change",function(e){
-  var lab=e.target.closest(".item"); if(!lab)return;
-  var id=lab.dataset.id;
-  if(e.target.checked)done[id]=1; else delete done[id];
-  save();
-  if(filter!=="all"){render()} else {lab.classList.toggle("done",e.target.checked);updateCounts()}
+  var row=e.target.closest(".item"); if(!row)return;
+  var id=row.dataset.id; if(e.target.checked)done[id]=1; else delete done[id];
+  save(); if(filter==="todo"||filter==="done")render(); else patch(row);
 });
-$("list").addEventListener("toggle",function(e){var d=e.target;if(d.dataset&&d.dataset.sec&&!term)openState[d.dataset.sec]=d.open},true);
 $("list").addEventListener("click",function(e){
-  var b=e.target.closest("button"); if(!b)return;
-  var id=b.dataset.all||b.dataset.none; if(!id)return;
-  var s=DATA.filter(function(x){return x.id===id})[0]; if(!s)return;
-  secIds(s).forEach(function(i){if(b.dataset.all)done[i]=1; else delete done[i]});
+  var fb=e.target.closest(".flag");
+  if(fb){var row=fb.closest(".item"),id=row.dataset.id; if(flags[id])delete flags[id]; else flags[id]=1; fb.setAttribute("aria-pressed",String(!!flags[id])); save(); if(filter==="flag")render(); else patch(row); return}
+  var b=e.target.closest("button[data-all],button[data-none]"); if(!b)return;
+  var id=b.dataset.all||b.dataset.none, s=DATA.filter(function(x){return x.id===id})[0]; if(!s)return;
+  secItems(s).forEach(function(i){if(b.dataset.all)done[i.id]=1; else delete done[i.id]});
   openState[id]=true; save(); render();
 });
-function setFilter(f){filter=f;["all","todo","done"].forEach(function(k){$("f-"+k).setAttribute("aria-pressed",String(k===f))});render()}
-$("f-all").onclick=function(){setFilter("all")};
-$("f-todo").onclick=function(){setFilter("todo")};
-$("f-done").onclick=function(){setFilter("done")};
+$("list").addEventListener("toggle",function(e){var d=e.target;if(d.dataset&&d.dataset.sec&&!term)openState[d.dataset.sec]=d.open},true);
+$("cards").addEventListener("click",function(e){
+  var b=e.target.closest("[data-jump]"); if(!b)return;
+  filter="all";term="";$("q").value="";setPressed();openState[b.dataset.jump]=true;render();
+  var el=document.getElementById("sec-"+b.dataset.jump); if(el)el.scrollIntoView();
+});
+function setPressed(){["all","todo","done","flag"].forEach(function(k){$("f-"+k).setAttribute("aria-pressed",String(k===filter))})}
+["all","todo","done","flag"].forEach(function(k){$("f-"+k).onclick=function(){filter=k;setPressed();render()}});
 $("q").addEventListener("input",function(){term=this.value.trim().toLowerCase();render()});
 $("expand").onclick=function(){DATA.forEach(function(s){openState[s.id]=true});render()};
 $("collapse").onclick=function(){DATA.forEach(function(s){openState[s.id]=false});render()};
-$("reset").onclick=function(){if(confirm("Clear all progress? This cannot be undone.")){done={};save();render()}};
-$("theme").onclick=function(){var r=document.documentElement;var t=r.dataset.theme==="dark"?"light":"dark";r.dataset.theme=t;ls("s",TKEY,t)};
+$("reset").onclick=function(){if(confirm("Clear all progress and flags? This cannot be undone.")){done={};flags={};save();render()}};
+$("theme").onclick=function(){var r=document.documentElement,t=r.dataset.theme==="dark"?"light":"dark";r.dataset.theme=t;ls("s",TKEY,t)};
 $("export").onclick=function(){
-  var blob=new Blob([JSON.stringify({version:1,done:Object.keys(done)},null,1)],{type:"application/json"});
+  var blob=new Blob([JSON.stringify({version:2,done:Object.keys(done),flagged:Object.keys(flags)},null,1)],{type:"application/json"});
   var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="aifc01-trap-progress.json";a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
 };
 $("import").onclick=function(){$("file").click()};
 $("file").onchange=function(){
-  var f=this.files[0]; if(!f)return;
-  var r=new FileReader();
-  r.onload=function(){try{var j=JSON.parse(r.result),known={};all.forEach(function(i){known[i]=1});
-    var n=0;(j.done||[]).forEach(function(i){if(known[i]){done[i]=1;n++}});save();render();alert("Imported "+n+" completed traps.")}catch(e){alert("That file is not a valid progress backup.")}};
+  var f=this.files[0]; if(!f)return; var r=new FileReader();
+  r.onload=function(){try{var j=JSON.parse(r.result),n=0;(j.done||[]).forEach(function(i){if(byId[i]){done[i]=1;n++}});(j.flagged||[]).forEach(function(i){if(byId[i])flags[i]=1});save();render();alert("Imported "+n+" completed traps.")}catch(e){alert("That file is not a valid progress backup.")}};
   r.readAsText(f); this.value="";
 };
+
+/* ---- quiz mode ---- */
+var Q={deck:[],i:0,shown:false,total:0,reviewed:0};
+function startQuiz(){
+  var pool=all.filter(function(i){return !done[i.id]});
+  var fl=pool.filter(function(i){return flags[i.id]}), rest=pool.filter(function(i){return !flags[i.id]});
+  if(filter==="flag")pool=all.filter(function(i){return flags[i.id]});
+  else pool=fl.concat(rest);
+  if(!pool.length){alert("Nothing left to quiz. Everything is done!");return}
+  Q.deck=pool;Q.i=0;Q.total=pool.length;Q.reviewed=0;$("quiz").className="on";qshow();
+}
+function qshow(){
+  if(Q.i>=Q.deck.length){qend();return}
+  var it=Q.deck[Q.i];Q.shown=false;
+  $("qpos").textContent=(Q.i+1)+" / "+Q.deck.length;
+  $("qfill").style.width=Math.round(100*Q.i/Q.deck.length)+"%";
+  $("qsec").textContent=short(it._s.title)+(it._g?" · "+it._g:"");
+  $("qtitle").innerHTML=md(it.cells[0]);
+  var f=fieldsHtml(it); $("qans").innerHTML=f||'<div class="f"><span>Say the answer out loud, then mark it.</span></div>';
+  $("qans").className="qans"; $("qhint").style.display="";
+  $("qbtns").innerHTML='<button class="primary" id="qreveal">Show answer (Space)</button><button id="qskip">Skip →</button>';
+  $("qreveal").onclick=qreveal;$("qskip").onclick=qskip;
+}
+function qreveal(){
+  if(Q.shown)return;Q.shown=true;$("qans").className="qans on";$("qhint").style.display="none";
+  $("qbtns").innerHTML='<button class="primary" id="qgot">✓ Got it (1)</button><button id="qlater">⚑ Review later (2)</button>';
+  $("qgot").onclick=function(){qmark(true)};$("qlater").onclick=function(){qmark(false)};
+}
+function qmark(ok){var it=Q.deck[Q.i];if(ok){done[it.id]=1;delete flags[it.id]}else{flags[it.id]=1}save();Q.reviewed++;Q.i++;qshow()}
+function qskip(){Q.i++;qshow()}
+function qend(){
+  $("qfill").style.width="100%";$("qpos").textContent="Finished";$("qsec").textContent="Session complete";
+  $("qtitle").textContent="You reviewed "+Q.reviewed+" of "+Q.total+" traps.";
+  $("qans").className="qans";$("qhint").style.display="";$("qhint").textContent="Flagged ones come first next time. Close this to see your updated progress.";
+  $("qbtns").innerHTML='<button class="primary" id="qdone">Close</button>';$("qdone").onclick=qclose;
+}
+function qclose(){$("quiz").className="";$("qhint").textContent="Think of the answer first, then reveal it.";render()}
+$("quizbtn").onclick=startQuiz;$("qclose").onclick=qclose;
+document.addEventListener("keydown",function(e){
+  if($("quiz").className!=="on")return;
+  if(e.key==="Escape"){qclose();return}
+  if(Q.i>=Q.deck.length)return;
+  if(e.key===" "||e.key==="Enter"){if(!Q.shown){e.preventDefault();qreveal()}}
+  else if(e.key==="1"&&Q.shown)qmark(true);
+  else if(e.key==="2"&&Q.shown)qmark(false);
+  else if(e.key==="ArrowRight")qskip();
+});
 render();
 })();
 </script>

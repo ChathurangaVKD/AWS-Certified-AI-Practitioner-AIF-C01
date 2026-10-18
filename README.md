@@ -44,10 +44,13 @@ A last-day revision tool: every "if you see X, pick Y" trap from the [exam trap 
 [![Open the checklist](https://img.shields.io/badge/✅_Open_the_trap_checklist-12805c?style=for-the-badge)](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner-AIF-C01/trap-checklist.html)
 
 - **300+ traps** across all five domains, look-alike service pairs, edge cases and format tricks
-- **Mark as done** one by one, or mark a whole section at once
-- **Progress tracking**: overall percentage plus a count for each section
-- **To do / Done filters** and **search**, for example type `Guardrails` or `recall`
-- **Private**: progress is saved only in your browser. Use *Export progress* to back it up or move devices
+- **Progress dashboard**: an overall percentage plus a colour-coded card per section. Click a card to jump to it
+- **🎯 Quiz me**: flashcard mode shows the trap, you recall the answer, press <kbd>Space</kbd> to reveal, then <kbd>1</kbd> got it or <kbd>2</kbd> review later. Flagged traps come first
+- **Mark as done** one by one, or a whole section at once
+- **⚑ Flag** tricky traps and filter to just those for a final pass
+- **To do / Done / Flagged filters** and **search**, for example type `Guardrails` or `recall`
+- **Readable layout**: rules are labelled, finished traps fade out, dark mode and mobile friendly
+- **Private**: progress is saved only in your browser. Use *Export* to back it up or move devices
 - **Always in sync**: the page is generated from the trap sheet, so new rows appear automatically and your ticks are kept
 
 Run it locally:
