@@ -24,7 +24,7 @@
 | **Cram before the exam** | [Ultra Fast Learn](docs/domain-1-fast-track/ULTRA-FAST-LEARN.md) |
 | **Last-day trap review** | [Exam trap sheet](docs/EXAM-TRAP-SHEET.md): look-alike services, edge cases, "if you see X pick Y" rules for all 5 domains |
 | **Tick off every trap** | [Interactive trap checklist](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner-AIF-C01/trap-checklist.html): 300+ traps with progress tracking saved in your browser |
-| **Understand the traps** | [Exam traps explained](docs/EXAM-TRAPS-EXPLAINED.md): theory + a worked example trap + how to spot it, for every domain |
+| **Understand the traps** | [📖 Exam traps explained (web)](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner-AIF-C01/trap-guide.html) or [read on GitHub](docs/EXAM-TRAPS-EXPLAINED.md): theory, worked examples and spot-it clues for every domain, with mark-as-read |
 | **Plan my weeks** | [Exam preparation strategy](docs/exam-preparation-strategy.md) |
 
 ## 🖥️ Exam simulator
@@ -149,6 +149,7 @@ Only in your browser's local storage. Nothing is sent to a server. They survive 
 ```bash
 python3 exam-simulator/build_questions.py   # rebuild questions from docs/
 python3 exam-simulator/build_traps.py       # rebuild the trap checklist from docs/EXAM-TRAP-SHEET.md
+python3 exam-simulator/build_guide.py       # rebuild the explained-traps page from docs/EXAM-TRAPS-EXPLAINED.md
 python3 -m http.server -d exam-simulator    # open http://localhost:8000
 ```
 It is plain HTML and JavaScript with no dependencies. The question bank is generated from the two mock exams in `docs/` plus the edge-case questions in `exam-simulator/extra-questions/`.

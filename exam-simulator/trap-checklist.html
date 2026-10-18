@@ -24,6 +24,7 @@ header{position:sticky;top:0;z-index:20;background:var(--nav);color:#fff;box-sha
 .top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding-top:10px;padding-bottom:10px}
 .top h1{font-size:1.05rem;margin:0;flex:1 1 auto;white-space:nowrap}
 .top .pct{font-weight:700;font-variant-numeric:tabular-nums;font-size:.95rem}
+.pages{display:flex;gap:6px}.pages .tab{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:6px 12px;font-size:.9rem}.pages .tab.on{background:var(--accent);border-color:var(--accent);color:#1b1200;font-weight:700}
 header button{background:transparent;color:#fff;border-color:rgba(255,255,255,.3);padding:6px 10px}
 header .primary{color:#1b1200;background:var(--accent)}
 .meter{height:6px;background:rgba(255,255,255,.18)}
@@ -103,6 +104,7 @@ kbd{background:var(--bg);border:1px solid var(--line);border-bottom-width:2px;bo
   <div class="wrap top">
     <h1>🪤 AIF-C01 Exam Trap Checklist</h1>
     <span class="pct" id="pct" aria-live="polite">0 / 0</span>
+    <nav class="pages" aria-label="Pages"><a class="tab on" href="trap-checklist.html" aria-current="page">✅ Checklist</a><a class="tab" href="trap-guide.html">📖 Guide</a><a class="tab" href="index.html">🖥️ Simulator</a></nav>
     <button class="primary" id="quizbtn">🎯 Quiz me</button>
     <button id="theme" aria-label="Toggle dark mode">🌓</button>
   </div>
@@ -140,7 +142,7 @@ kbd{background:var(--bg);border:1px solid var(--line);border-bottom-width:2px;bo
   </div>
 
   <div id="list"></div>
-  <p class="note">Progress and flags are saved only in this browser (local storage). Nothing is sent anywhere. Use <b>Export</b> to back it up or move devices. Need the reasoning? Read <b>Exam traps explained</b> in the repo (<code>docs/EXAM-TRAPS-EXPLAINED.md</code>). Traps come from <code>docs/EXAM-TRAP-SHEET.md</code> and are original study notes, not real exam questions.</p>
+  <p class="note">Progress and flags are saved only in this browser (local storage). Nothing is sent anywhere. Use <b>Export</b> to back it up or move devices. Need the reasoning? Open the <a href="trap-guide.html">📖 Exam Traps Explained guide</a>. Traps come from <code>docs/EXAM-TRAP-SHEET.md</code> and are original study notes, not real exam questions.</p>
 </main>
 
 <div id="quiz" role="dialog" aria-modal="true" aria-label="Quiz mode">

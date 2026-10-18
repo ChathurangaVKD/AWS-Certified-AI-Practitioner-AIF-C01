@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIF-C01 Exam Traps Explained</title>
+<meta name="description" content="Theory, worked examples and spot-it clues for every major AIF-C01 exam trap. Mark topics as read; progress is saved in your browser only.">
+<style>
+:root{--bg:#f4f6fa;--card:#fff;--text:#172033;--muted:#5d6b82;--line:#e2e7f0;--accent:#ff9900;--accent-d:#a85a00;--accent-bg:#fff3de;--ok:#0f7a56;--okbg:#e6f6ee;--bad:#b42318;--badbg:#fdecea;--info:#175cd3;--infobg:#e8f0fe;--nav:#232f3e;--shadow:0 1px 2px rgba(16,24,40,.06),0 4px 14px rgba(16,24,40,.05);--r:14px}
+:root[data-theme=dark]{--bg:#0e121a;--card:#171e29;--text:#e9edf4;--muted:#9aa6ba;--line:#2a3343;--accent-bg:#3a2d14;--accent-d:#ffb74d;--ok:#4cc79a;--okbg:#10322a;--bad:#ff8a80;--badbg:#3a1d1b;--info:#8ab4ff;--infobg:#17263f;--nav:#090c12;--shadow:0 1px 3px rgba(0,0,0,.45)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+a{color:var(--info)}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:7px 12px}
+button:hover{border-color:var(--accent)}
+header.site{position:sticky;top:0;z-index:30;background:var(--nav);color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:10px clamp(16px,3vw,56px)}
+.top h1{font-size:1.05rem;margin:0;flex:1 1 auto}
+.top nav{display:flex;gap:6px}
+.top a.tab{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:6px 12px;font-size:.9rem}
+.top a.tab.on{background:var(--accent);border-color:var(--accent);color:#1b1200;font-weight:700}
+.top button{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.top .pct{font-weight:700;font-size:.9rem;font-variant-numeric:tabular-nums}
+.meter{height:6px;background:rgba(255,255,255,.18)}
+.meter>i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:24px;padding:22px clamp(16px,3vw,56px) 56px;align-items:start}
+aside{position:sticky;top:84px;max-height:calc(100vh - 100px);overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px;box-shadow:var(--shadow)}
+aside a{display:block;color:var(--text);text-decoration:none;padding:4px 8px;border-radius:8px;font-size:.88rem;line-height:1.35}
+aside a:hover{background:var(--accent-bg)}
+aside a.nsec{font-weight:700;margin-top:8px}
+aside a.ntop{color:var(--muted);padding-left:18px}
+aside a.ntop.done::before{content:"✓ ";color:var(--ok);font-weight:700}
+aside a.ntop.done{color:var(--ok)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tools input{flex:1 1 240px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+.hero{background:linear-gradient(135deg,var(--nav),#33465e);color:#fff;border-radius:var(--r);padding:18px 22px;margin-bottom:16px;box-shadow:var(--shadow)}
+.hero h2{margin:0 0 6px;font-size:1.4rem}
+.hero p{margin:4px 0;opacity:.92}
+.hero a{color:#ffd27d}
+.hero blockquote{margin:10px 0 0;border:0;background:rgba(255,255,255,.1);color:#fff}
+section.sec{margin-bottom:26px}
+section.sec>h2{font-size:1.35rem;margin:0 0 12px;padding-bottom:6px;border-bottom:3px solid var(--accent)}
+.intro{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:6px 18px 12px;margin-bottom:14px;box-shadow:var(--shadow)}
+article.topic{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px 8px;margin-bottom:14px;box-shadow:var(--shadow);border-left:5px solid var(--accent)}
+article.topic.done{border-left-color:var(--ok)}
+article.topic>header{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:6px}
+article.topic h3{margin:0;font-size:1.12rem}
+.read{display:flex;gap:6px;align-items:center;font-size:.85rem;color:var(--muted);cursor:pointer;white-space:nowrap}
+.read input{width:18px;height:18px;accent-color:var(--ok)}
+article.topic ul{list-style:none;margin:0;padding:0}
+li.field{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+li.field:first-child{border-top:0}
+li.field .lab{flex:none;width:6.8em;align-self:flex-start;text-align:center;font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 6px;border-radius:99px;background:var(--bg);color:var(--muted);margin-top:3px}
+li.field .body{flex:1;min-width:0}
+li.theory .lab{background:var(--infobg);color:var(--info)}
+li.detail .lab{background:var(--bg);color:var(--muted)}
+li.trap .lab{background:var(--badbg);color:var(--bad)}
+li.example .lab{background:var(--okbg);color:var(--ok)}
+li.spot .lab{background:var(--accent-bg);color:var(--accent-d)}
+li.field ul{list-style:disc;padding-left:1.2em;margin:6px 0 0}
+li.field ul li{padding:1px 0}
+ul,ol{padding-left:1.3em}
+code{background:var(--bg);border:1px solid var(--line);padding:1px 6px;border-radius:6px;font-size:.88em}
+blockquote{margin:10px 0;padding:8px 14px;border-left:4px solid var(--accent);background:var(--accent-bg);color:var(--text);border-radius:0 10px 10px 0}
+.tw{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--bg)}
+details.ans{margin:8px 0}
+details.ans summary{cursor:pointer;font-weight:700;color:var(--info)}
+.empty{display:none;text-align:center;color:var(--muted);padding:30px}
+.hide{display:none!important}
+.menu{display:none}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  aside{position:static;max-height:none;display:none}
+  aside.open{display:block}
+  .menu{display:inline-block}
+  li.field{flex-direction:column;gap:4px}
+  li.field .lab{width:auto;align-self:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="top">
+    <h1>📖 AIF-C01 Exam Traps Explained</h1>
+    <span class="pct" id="pct" aria-live="polite">0 / {{TOTAL}} read</span>
+    <nav aria-label="Pages"><a class="tab" href="trap-checklist.html">✅ Checklist</a><a class="tab on" href="trap-guide.html" aria-current="page">📖 Guide</a><a class="tab" href="index.html">🖥️ Simulator</a></nav>
+    <button class="menu" id="menu" aria-expanded="false">☰ Topics</button>
+    <button id="theme" aria-label="Toggle dark mode">🌓</button>
+  </div>
+  <div class="meter" role="progressbar" aria-label="Topics read" aria-valuemin="0" aria-valuemax="100" id="meter"><i id="fill"></i></div>
+</header>
+<div class="layout">
+  <aside id="aside" aria-label="Topics">
+{{NAV}}
+  </aside>
+  <main>
+    <div class="hero">
+      <h2>Understand why, not just what</h2>
+      <p>Every topic has the theory, a deeper look, the trap, two worked examples and a spot-it clue. Tick <b>Read</b> as you go.</p>
+      <p>Pair it with the <a href="trap-checklist.html">interactive trap checklist</a> and its <b>Quiz me</b> mode.</p>
+    </div>
+    <div class="tools">
+      <input type="search" id="q" placeholder="Search topics, e.g. recall, Guardrails, RAG" aria-label="Search topics">
+      <button id="expand">Show all</button>
+      <button id="unread">Unread only</button>
+      <button id="reset">Reset progress</button>
+    </div>
+    <p class="empty" id="empty">No topics match your search.</p>
+    {{BODY}}
+    <p style="color:var(--muted);font-size:.85rem">Original study notes, not real exam questions. Not affiliated with AWS. Progress is saved only in this browser.</p>
+  </main>
+</div>
+<script>
+(function(){
+"use strict";
+var KEY="aifc01-guide-read-v1",TKEY="aifc01-trap-theme";
+function ls(op,k,v){try{return op==="g"?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){return null}}
+var read={};try{read=JSON.parse(ls("g",KEY)||"{}")||{}}catch(e){read={}}
+var th=ls("g",TKEY);if(th)document.documentElement.dataset.theme=th;
+var topics=[].slice.call(document.querySelectorAll("article.topic")),unreadOnly=false;
+function $(i){return document.getElementById(i)}
+function paint(){
+  var n=0;
+  topics.forEach(function(t){
+    var d=!!read[t.dataset.id];if(d)n++;
+    t.classList.toggle("done",d);t.querySelector("input").checked=d;
+    var a=document.querySelector('aside a[href="#'+t.id+'"]');if(a)a.classList.toggle("done",d);
+  });
+  var p=topics.length?Math.round(100*n/topics.length):0;
+  $("pct").textContent=n+" / "+topics.length+" read";$("fill").style.width=p+"%";$("meter").setAttribute("aria-valuenow",p);
+  document.title=(p?p+"% · ":"")+"AIF-C01 Exam Traps Explained";
+  filter();
+}
+function filter(){
+  var term=$("q").value.trim().toLowerCase(),shown=0;
+  topics.forEach(function(t){
+    var ok=(!term||t.textContent.toLowerCase().indexOf(term)>-1)&&!(unreadOnly&&read[t.dataset.id]);
+    t.classList.toggle("hide",!ok);if(ok)shown++;
+    var a=document.querySelector('aside a[href="#'+t.id+'"]');if(a)a.classList.toggle("hide",!ok);
+  });
+  $("empty").style.display=shown?"none":"block";
+  $("unread").textContent=unreadOnly?"Show all":"Unread only";
+}
+document.addEventListener("change",function(e){
+  var t=e.target.closest&&e.target.closest("article.topic");if(!t)return;
+  if(e.target.checked)read[t.dataset.id]=1;else delete read[t.dataset.id];
+  ls("s",KEY,JSON.stringify(read));paint();
+});
+$("q").addEventListener("input",filter);
+$("unread").onclick=function(){unreadOnly=!unreadOnly;filter()};
+$("expand").onclick=function(){$("q").value="";unreadOnly=false;filter()};
+$("reset").onclick=function(){if(confirm("Clear all read marks?")){read={};ls("s",KEY,"{}");paint()}};
+$("theme").onclick=function(){var r=document.documentElement,t=r.dataset.theme==="dark"?"light":"dark";r.dataset.theme=t;ls("s",TKEY,t)};
+$("menu").onclick=function(){var a=$("aside"),o=a.classList.toggle("open");this.setAttribute("aria-expanded",String(o))};
+$("aside").addEventListener("click",function(e){if(e.target.tagName==="A")$("aside").classList.remove("open")});
+paint();
+})();
+</script>
+</body>
+</html>
