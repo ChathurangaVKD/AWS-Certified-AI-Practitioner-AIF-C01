@@ -2,6 +2,8 @@
 
 **Tick them off as you go:** open the [interactive trap checklist](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner-AIF-C01/trap-checklist.html). It turns every trap below into a checkbox, shows overall and per-section progress, and saves it in your browser.
 
+**Want the reasoning behind a trap?** Read [Exam traps explained](EXAM-TRAPS-EXPLAINED.md): theory, a worked example and a "spot it" clue for each major topic.
+
 Read top to bottom in about 45 minutes. Each row is **"if you see X, pick Y, and don't fall for Z"**.
 Written from the public exam guide domains in original wording. It contains **no real exam questions and no text copied from any exam-prep vendor**. It is an independent study aid, not affiliated with or endorsed by AWS, and should be checked against the [official exam guide](https://aws.amazon.com/certification/certified-ai-practitioner/).
 

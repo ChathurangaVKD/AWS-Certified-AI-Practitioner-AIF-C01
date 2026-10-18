@@ -24,6 +24,7 @@
 | **Cram before the exam** | [Ultra Fast Learn](docs/domain-1-fast-track/ULTRA-FAST-LEARN.md) |
 | **Last-day trap review** | [Exam trap sheet](docs/EXAM-TRAP-SHEET.md): look-alike services, edge cases, "if you see X pick Y" rules for all 5 domains |
 | **Tick off every trap** | [Interactive trap checklist](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner-AIF-C01/trap-checklist.html): 300+ traps with progress tracking saved in your browser |
+| **Understand the traps** | [Exam traps explained](docs/EXAM-TRAPS-EXPLAINED.md): theory + a worked example trap + how to spot it, for every domain |
 | **Plan my weeks** | [Exam preparation strategy](docs/exam-preparation-strategy.md) |
 
 ## 🖥️ Exam simulator
