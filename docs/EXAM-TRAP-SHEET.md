@@ -359,17 +359,17 @@ Fairness · Explainability · Privacy & security · Transparency · Veracity & r
 
 ---
 
-## 8. Common mistakes from practice testing (concept notes)
+## 8. Concept clarifications (frequently confused ideas)
 
-These are general concepts that are easy to get wrong when practising. They are paraphrased rules, not questions or answer options from any test.
+General concepts that are easy to confuse. They are original one-line rules, not questions, scenarios or answer options from any exam or course.
 
 | Concept | Rule to remember |
 |---|---|
 | N-grams | A window of n slides one word at a time, so 3 words give trigrams ("w1 w2 w3", "w2 w3 w4"...). Not single words or non-overlapping chunks. |
 | Serverless inference | Idle periods between traffic spikes and tolerable cold starts: choose **Serverless Inference**, not an always-on real-time endpoint. |
 | ROUGE | Summarization quality. BLEU is translation. |
-| Controlling long LLM answers | Say the concise format in the prompt and show negative examples. Capping max tokens only truncates, it doesn't make answers concise. |
-| Hyperparameter tuning | Grid/random/Bayesian search tune hyperparameters. **Gradient descent** optimizes weights during training, so it is the "NOT a tuning technique" answer. |
+| Controlling answer length | Specify the format in the prompt and give examples. Capping max tokens only truncates the output. |
+| Hyperparameter tuning vs training | Grid/random/Bayesian search tune hyperparameters. **Gradient descent** optimizes weights during training; it is not a hyperparameter search method. |
 | Quantization | Converts weights from high to lower precision (32-bit to 16/8-bit): smaller, faster, cheaper. |
 | Distillation | Small student learns from large teacher. Don't swap with quantization. |
 | Forward diffusion | The step that adds noise. Generation is the reverse (denoising) step. |
@@ -378,28 +378,28 @@ These are general concepts that are easy to get wrong when practising. They are 
 | CloudWatch for Bedrock apps | Operational monitoring (latency, errors, invocation logs). CloudTrail is for who called what. |
 | AutoML (SageMaker Autopilot/Canvas) | Automates algorithm choice, feature handling and tuning for fast model building. |
 | RAG vector stores | Besides OpenSearch/Aurora pgvector, Amazon S3 Vectors can now store embeddings. |
-| Decision tree | Valid for churn classification and explainable. |
-| Complete automation in an accessibility/high-stakes use | Removing human oversight is the weak choice. Keep a human in the loop. |
-| Cross-account Bedrock | Use IAM roles/bucket policies for controlled access to a central AI account, not shared keys. |
-| Instruction-based fine-tuning | Needs **prompt/response (question-answer) pairs** about your domain. Raw documents are not the input. |
+| Decision tree | A classification/regression model that is easy to explain. |
+| Human oversight | In high-stakes or sensitive uses, fully removing human review is the weak design. Keep a human in the loop. |
+| Cross-account access | Use IAM roles and resource policies for controlled access, not shared long-lived keys. |
+| Instruction-based fine-tuning | Needs **prompt/response pairs**. Raw unlabeled documents are not the input. |
 | Continued pre-training | Many **unlabeled** domain documents (legal, medical) to teach vocabulary and context. Labeled pairs mean fine-tuning. |
-| Transcribe custom terms | **Custom vocabulary** (a vocabulary table can set the displayed form). Custom language model is for much larger domain text. |
+| Transcribe custom terms | **Custom vocabulary** for specific words and their display form. A custom language model suits much larger domain text. |
 | Well-Architected ML Lens | The lifecycle starts with **business goal identification**, then data, model, deploy, monitor. |
 | SageMaker Inference Recommender | Automates load testing to choose instance type and endpoint config. |
-| Real-time endpoint | Sub-100 ms responses with steady traffic. Not batch, not serverless. |
+| Real-time endpoint | Low-latency responses with steady traffic. Not batch, not serverless. |
 | Batch Transform | Large datasets, no immediate response needed. |
 | Data Wrangler vs Pipelines | **Data Wrangler** = low-code data prep. **Pipelines** = orchestrate ML workflow steps. |
-| Unsupervised vs supervised | **K-Means** is unsupervised clustering. **Linear regression** predicts a continuous value (house price). |
+| Unsupervised vs supervised | **K-Means** is unsupervised clustering. **Linear regression** predicts a continuous number. |
 | Ground Truth | Labels data (humans and automation). It does **not** train models. |
 | Bedrock Playground / PartyRock | Playground to test prompts and models. PartyRock = no-code GenAI app builder. |
 | Prompt engineering | Improves the **input** to a pre-trained model, not its weights. |
-| Cost-order of improvement | Prompt engineering, then RAG, then instruction fine-tuning, then domain-specific fine-tuning (cheapest to priciest). |
-| Metric matching | F1 = classification balance. MSE = regression. Perplexity = language model fluency. BERTScore = semantic similarity. |
+| Customization cost order | Prompt engineering, RAG, fine-tuning, continued pre-training, training from scratch (cheapest to priciest). |
+| Metric purpose | F1 = classification balance. MSE = regression error. Perplexity = language model fluency. BERTScore = semantic similarity. |
 | Embeddings | A vector database query is converted to an **array of numbers**, then similarity-searched. |
 | Jailbreaking | Tricking the model into producing disallowed content. |
 | Interpretability | Humans can understand the model's inner workings (vs explainability = why a given output). |
 | Bias test: prompt stereotyping | Checks whether a model encodes stereotypes across prompt variations. |
-| Prompt-attack kinds | Attacks try to switch the persona, override the prompt template, or extract the system prompt or conversation history. |
+| Prompt-attack kinds | Attacks may switch the persona, override instructions, or try to extract the system prompt or history. |
 | Bedrock monitoring | **CloudWatch** for health/performance. Invocation logging goes to a CloudWatch Logs log group (or S3). |
 | AUC | Compare classifiers across all thresholds, independent of one cutoff. |
 | JumpStart | Browse and deploy many pre-built models and algorithms inside SageMaker. |
@@ -408,7 +408,7 @@ These are general concepts that are easy to get wrong when practising. They are 
 | Top-p / top-k | Filter out low-probability tokens from sampling. |
 | Prompt leaking defences | Sanitize and validate inputs, and filter outputs. Both directions. |
 | Jailbreak risk | The main concern is output that violates policy or safety rules. |
-| Data protection pair | **HTTPS/TLS** in transit and **server-side encryption** at rest. |
+| Data protection basics | **TLS/HTTPS** in transit and **server-side encryption** at rest. |
 | BLEU/ROUGE use | Text summarization and machine translation. |
 | Computer vision | Image/video understanding tasks: pick it for visual content. |
 | Bedrock latency factors | Provisioned throughput, model size and complexity, and network latency between app and model. |
