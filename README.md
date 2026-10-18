@@ -8,7 +8,7 @@
 &nbsp;![Questions](https://img.shields.io/badge/practice_questions-296-232f3e?style=for-the-badge)
 &nbsp;![License](https://img.shields.io/badge/license-MIT-12805c?style=for-the-badge)
 
-[🚀 Start here](#-start-here) · [📚 Study materials](#-study-materials) · [📝 Practice](#-practice-and-mock-exams) · [🗓️ Study plan](#️-study-plan) · [❓ FAQ](#-faq)
+[🚀 Start here](#-start-here) · [✅ Trap checklist](#-exam-trap-checklist) · [📚 Study materials](#-study-materials) · [📝 Practice](#-practice-and-mock-exams) · [🗓️ Study plan](#️-study-plan) · [❓ FAQ](#-faq)
 
 </div>
 
@@ -36,6 +36,26 @@ Runs in your browser, no sign-up, no tracking.
 - ⏸️ Exam timer with **pause** (paused time isn't counted) and **time taken** saved in your attempt history
 - 💾 Your history stays **in your own browser**. Use *Export backup* to keep it safe or move devices
 - ⌨️ Keyboard shortcuts: `A`–`E` answer · `←` `→` navigate · `F` flag · `P` pause · `Enter` check
+
+## ✅ Exam trap checklist
+
+A last-day revision tool: every "if you see X, pick Y" trap from the [exam trap sheet](docs/EXAM-TRAP-SHEET.md) as a tick box, so you can work through them one by one and see exactly what is left.
+
+[![Open the checklist](https://img.shields.io/badge/✅_Open_the_trap_checklist-12805c?style=for-the-badge)](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner-AIF-C01/trap-checklist.html)
+
+- **300+ traps** across all five domains, look-alike service pairs, edge cases and format tricks
+- **Mark as done** one by one, or mark a whole section at once
+- **Progress tracking**: overall percentage plus a count for each section
+- **To do / Done filters** and **search**, for example type `Guardrails` or `recall`
+- **Private**: progress is saved only in your browser. Use *Export progress* to back it up or move devices
+- **Always in sync**: the page is generated from the trap sheet, so new rows appear automatically and your ticks are kept
+
+Run it locally:
+
+```bash
+python3 exam-simulator/build_traps.py     # regenerate traps.js from the trap sheet
+python3 -m http.server -d exam-simulator  # open http://localhost:8000/trap-checklist.html
+```
 
 ## 📚 Study materials
 
