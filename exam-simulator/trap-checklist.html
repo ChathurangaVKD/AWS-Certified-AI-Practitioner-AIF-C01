@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIF-C01 Exam Trap Checklist</title>
+<meta name="description" content="Tick off every AIF-C01 exam trap as you review it. Progress is saved in your browser only.">
+<style>
+:root{--bg:#f3f5f9;--card:#fff;--text:#18202e;--muted:#667085;--line:#e0e5ee;--accent:#ff9900;--accent-d:#b35f00;--accent-bg:#fff3de;--ok:#12805c;--okbg:#e4f6ee;--nav:#232f3e;--shadow:0 1px 3px rgba(16,24,40,.08);--r:12px}
+:root[data-theme=dark]{--bg:#0f131a;--card:#1a212c;--text:#e8ecf2;--muted:#98a2b3;--line:#2b3442;--accent-bg:#3a2d14;--accent-d:#ffb74d;--ok:#4cc79a;--okbg:#12342a;--nav:#0a0e14;--shadow:0 1px 3px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header{position:sticky;top:0;z-index:10;background:var(--nav);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.bar{max-width:900px;margin:0 auto;padding:10px 16px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+h1{font-size:1.1rem;margin:0;flex:1 1 auto}
+.pct{font-weight:700;font-variant-numeric:tabular-nums}
+.meter{height:8px;border-radius:99px;background:rgba(255,255,255,.2);overflow:hidden;margin-top:8px}
+.meter>i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+main{max-width:900px;margin:0 auto;padding:16px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.tools input[type=search]{flex:1 1 200px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);padding:8px 12px}
+button:hover{border-color:var(--accent)}
+button[aria-pressed=true]{background:var(--accent-bg);border-color:var(--accent);color:var(--accent-d);font-weight:600}
+header button{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+details.sec{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:12px}
+details.sec>summary{cursor:pointer;list-style:none;padding:12px 14px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-weight:700}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary::before{content:"▸";color:var(--muted)}
+details.sec[open]>summary::before{content:"▾"}
+.count{margin-left:auto;font-size:.85rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.count.full{color:var(--ok)}
+.sbody{padding:0 14px 12px}
+h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:14px 0 6px}
+.item{display:flex;gap:10px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;margin-bottom:6px;cursor:pointer;align-items:flex-start}
+.item:hover{border-color:var(--accent)}
+.item input{margin-top:5px;width:18px;height:18px;flex:none;accent-color:var(--ok)}
+.item.done{background:var(--okbg)}
+.item.done .t{text-decoration:line-through;text-decoration-color:var(--muted)}
+.t{font-weight:600}
+.d{color:var(--muted);font-size:.92rem;margin-top:2px}
+.d b{color:var(--text)}
+code{background:var(--bg);padding:1px 5px;border-radius:5px;font-size:.9em}
+.sec-actions{display:flex;gap:8px;margin:10px 0 0}
+.sec-actions button{font-size:.85rem;padding:5px 10px}
+.empty{color:var(--muted);text-align:center;padding:30px 0}
+.note{color:var(--muted);font-size:.85rem;margin:18px 0 40px}
+.sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <div class="row">
+    <h1>🪤 AIF-C01 Exam Trap Checklist</h1>
+    <span class="pct" id="pct" aria-live="polite">0%</span>
+    <button id="theme" aria-label="Toggle dark mode">🌓</button>
+  </div>
+  <div class="meter" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100" id="meter"><i id="fill"></i></div>
+</div></header>
+<main>
+  <div class="tools">
+    <input type="search" id="q" placeholder="Search traps (e.g. Guardrails, recall)" aria-label="Search traps">
+    <button id="f-all" aria-pressed="true">All</button>
+    <button id="f-todo" aria-pressed="false">To do</button>
+    <button id="f-done" aria-pressed="false">Done</button>
+  </div>
+  <div class="tools">
+    <button id="expand">Expand all</button>
+    <button id="collapse">Collapse all</button>
+    <button id="export">Export progress</button>
+    <button id="import">Import progress</button>
+    <button id="reset">Reset</button>
+    <input type="file" id="file" accept="application/json" class="sr" tabindex="-1">
+  </div>
+  <div id="list"></div>
+  <p class="note">Progress is saved only in this browser (local storage). Nothing is sent anywhere. Use <b>Export progress</b> to back it up or move devices. The traps come from <code>docs/EXAM-TRAP-SHEET.md</code> and are original study notes, not real exam questions.</p>
+</main>
+<script src="traps.js"></script>
+<script>
+(function(){
+"use strict";
+var KEY="aifc01-trap-progress-v1", TKEY="aifc01-trap-theme";
+var DATA=window.TRAPS||[], done={}, filter="all", term="";
+function ls(op,k,v){try{return op==="g"?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){return null}}
+try{done=JSON.parse(ls("g",KEY)||"{}")||{}}catch(e){done={}}
+function save(){ls("s",KEY,JSON.stringify(done))}
+var theme=ls("g",TKEY); if(theme)document.documentElement.dataset.theme=theme;
+
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function md(s){return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/`(.+?)`/g,"<code>$1</code>")}
+function $(id){return document.getElementById(id)}
+
+var all=[]; DATA.forEach(function(s){s.groups.forEach(function(g){g.items.forEach(function(i){all.push(i.id)})})});
+function secIds(s){var a=[];s.groups.forEach(function(g){g.items.forEach(function(i){a.push(i.id)})});return a}
+function countDone(ids){return ids.filter(function(i){return done[i]}).length}
+
+function itemHtml(it){
+  var c=it.cells, head=it.head, d="";
+  if(head&&c.length>1){d=c.slice(1).map(function(x,n){return x?"<b>"+md(head[n+1]||"")+":</b> "+md(x):""}).filter(Boolean).join("<br>")}
+  var chk=done[it.id]?" checked":"";
+  return '<label class="item'+(done[it.id]?" done":"")+'" data-id="'+esc(it.id)+'"><input type="checkbox"'+chk+'><span><span class="t">'+md(c[0])+'</span>'+(d?'<div class="d">'+d+'</div>':"")+'</span></label>';
+}
+function visible(it){
+  var isDone=!!done[it.id];
+  if(filter==="todo"&&isDone)return false;
+  if(filter==="done"&&!isDone)return false;
+  if(term){var t=(it.cells.join(" ")).toLowerCase(); if(t.indexOf(term)<0)return false}
+  return true;
+}
+var openState={};
+function render(){
+  var html="", shown=0;
+  DATA.forEach(function(s,si){
+    var ids=secIds(s), n=countDone(ids), body="";
+    s.groups.forEach(function(g){
+      var items=g.items.filter(visible);
+      if(!items.length)return;
+      shown+=items.length;
+      body+=(g.title?"<h3>"+md(g.title)+"</h3>":"")+items.map(itemHtml).join("");
+    });
+    if(!body&&(term||filter!=="all"))return;
+    var open=openState[s.id]!==undefined?openState[s.id]:(si===0);
+    if(term)open=true;
+    html+='<details class="sec" data-sec="'+esc(s.id)+'"'+(open?" open":"")+'><summary>'+md(s.title)+'<span class="count'+(n===ids.length?" full":"")+'">'+n+" / "+ids.length+(n===ids.length?" ✓":"")+'</span></summary><div class="sbody">'+body+
+      '<div class="sec-actions"><button data-all="'+esc(s.id)+'">Mark section done</button><button data-none="'+esc(s.id)+'">Clear section</button></div></div></details>';
+  });
+  $("list").innerHTML=html||'<p class="empty">No traps match.</p>';
+  progress();
+}
+function progress(){
+  var n=countDone(all), p=all.length?Math.round(100*n/all.length):0;
+  $("pct").textContent=n+" / "+all.length+" ("+p+"%)";
+  $("fill").style.width=p+"%"; $("meter").setAttribute("aria-valuenow",p);
+  document.title=(p?p+"% · ":"")+"AIF-C01 Exam Trap Checklist";
+}
+function updateCounts(){
+  DATA.forEach(function(s){
+    var d=document.querySelector('details[data-sec="'+s.id+'"]'); if(!d)return;
+    var ids=secIds(s), n=countDone(ids), c=d.querySelector(".count");
+    c.textContent=n+" / "+ids.length+(n===ids.length?" ✓":""); c.className="count"+(n===ids.length?" full":"");
+  });
+  progress();
+}
+$("list").addEventListener("change",function(e){
+  var lab=e.target.closest(".item"); if(!lab)return;
+  var id=lab.dataset.id;
+  if(e.target.checked)done[id]=1; else delete done[id];
+  save();
+  if(filter!=="all"){render()} else {lab.classList.toggle("done",e.target.checked);updateCounts()}
+});
+$("list").addEventListener("toggle",function(e){var d=e.target;if(d.dataset&&d.dataset.sec&&!term)openState[d.dataset.sec]=d.open},true);
+$("list").addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b)return;
+  var id=b.dataset.all||b.dataset.none; if(!id)return;
+  var s=DATA.filter(function(x){return x.id===id})[0]; if(!s)return;
+  secIds(s).forEach(function(i){if(b.dataset.all)done[i]=1; else delete done[i]});
+  openState[id]=true; save(); render();
+});
+function setFilter(f){filter=f;["all","todo","done"].forEach(function(k){$("f-"+k).setAttribute("aria-pressed",String(k===f))});render()}
+$("f-all").onclick=function(){setFilter("all")};
+$("f-todo").onclick=function(){setFilter("todo")};
+$("f-done").onclick=function(){setFilter("done")};
+$("q").addEventListener("input",function(){term=this.value.trim().toLowerCase();render()});
+$("expand").onclick=function(){DATA.forEach(function(s){openState[s.id]=true});render()};
+$("collapse").onclick=function(){DATA.forEach(function(s){openState[s.id]=false});render()};
+$("reset").onclick=function(){if(confirm("Clear all progress? This cannot be undone.")){done={};save();render()}};
+$("theme").onclick=function(){var r=document.documentElement;var t=r.dataset.theme==="dark"?"light":"dark";r.dataset.theme=t;ls("s",TKEY,t)};
+$("export").onclick=function(){
+  var blob=new Blob([JSON.stringify({version:1,done:Object.keys(done)},null,1)],{type:"application/json"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="aifc01-trap-progress.json";a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
+};
+$("import").onclick=function(){$("file").click()};
+$("file").onchange=function(){
+  var f=this.files[0]; if(!f)return;
+  var r=new FileReader();
+  r.onload=function(){try{var j=JSON.parse(r.result),known={};all.forEach(function(i){known[i]=1});
+    var n=0;(j.done||[]).forEach(function(i){if(known[i]){done[i]=1;n++}});save();render();alert("Imported "+n+" completed traps.")}catch(e){alert("That file is not a valid progress backup.")}};
+  r.readAsText(f); this.value="";
+};
+render();
+})();
+</script>
+</body>
+</html>

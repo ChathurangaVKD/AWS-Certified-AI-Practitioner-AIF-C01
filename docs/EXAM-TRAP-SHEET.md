@@ -1,5 +1,7 @@
 # 🪤 AIF-C01 Exam Trap Sheet (last-day review)
 
+**Tick them off as you go:** open the [interactive trap checklist](https://chathurangavkd.github.io/AWS-Certified-AI-Practitioner-AIF-C01/trap-checklist.html). It turns every trap below into a checkbox, shows overall and per-section progress, and saves it in your browser.
+
 Read top to bottom in about 45 minutes. Each row is **"if you see X, pick Y, and don't fall for Z"**.
 Written from the public exam guide domains in original wording. It contains **no real exam questions and no text copied from any exam-prep vendor**. It is an independent study aid, not affiliated with or endorsed by AWS, and should be checked against the [official exam guide](https://aws.amazon.com/certification/certified-ai-practitioner/).
 
@@ -359,7 +361,97 @@ Fairness · Explainability · Privacy & security · Transparency · Veracity & r
 
 ---
 
-## 8. Concept clarifications (frequently confused ideas)
+## 7. Extra edge cases worth a last look
+
+| Edge case | Rule |
+|---|---|
+| "NOT" / "EXCEPT" / "LEAST" questions | Re-read the stem, find the three true statements, pick the false one. Mark them and recheck. |
+| "Choose two/three" | Every chosen option must independently be correct. A half-right pair scores zero. |
+| Drag-and-drop / ordering | Order by the stated axis (cost, effort, lifecycle stage). Don't reuse an item unless the stem allows it. |
+| Guardrails apply to **inputs and outputs** | They block denied topics, harmful content, PII, and can check grounding. They don't replace IAM. |
+| Fine-tuned model on Bedrock | Runs only on **Provisioned Throughput**. |
+| Base-model data privacy | Your prompts/outputs aren't used to train base FMs. |
+| RAG fixes stale knowledge | An LLM can't know events after its training cutoff. Retrieval adds current data. |
+| Overfitting vs underfitting | Great on train and poor on new data = overfit. Poor on both = underfit. |
+| Accuracy on imbalanced data | Misleading. Use precision, recall, F1. |
+| Human in the loop | Prefer it for high-stakes decisions and low-confidence predictions (A2I). |
+| Explainability tool | **Clarify** (SHAP) for features. Model Cards for documentation. |
+| Compliance reports | **Artifact** downloads AWS reports. **Audit Manager** gathers your evidence. |
+| Least privilege | The answer to most "who can access" questions: narrow IAM roles/policies, not broad admin. |
+| Encryption | At rest = KMS. In transit = TLS. Private network path = PrivateLink / VPC endpoints. |
+| Low latency + steady traffic | Real-time endpoint. Spiky/idle = serverless. Big offline = batch. |
+| Cheapest customization | Try prompt engineering first, RAG second, fine-tune only if those fail. |
+| Hallucination | Mitigate (RAG, grounding, low temperature, human review). Never "eliminate". |
+| Absolute claims | "Guarantees", "always", "eliminates all" are almost always wrong. |
+
+## 8. Gap-fill after checking all 5 domains
+
+### Domain 1: algorithms, data prep, deployment
+| Topic | Rule |
+|---|---|
+| Algorithm to task | Linear/logistic regression and **XGBoost** = tabular; **KNN** and **decision tree / random forest** = classification/regression; **K-Means** = clustering; **PCA** = dimensionality reduction; **CNN** = images; **RNN/LSTM/transformer** = sequences/text. |
+| Ensembles | **Bagging** (random forest) reduces variance. **Boosting** (XGBoost) reduces bias by fixing prior errors. |
+| Transfer learning | Reuse a pre-trained model for a new task with less data. Fine-tuning is a form of it. |
+| Data cleaning | Handle **outliers**, missing values (**imputation**), duplicates. Do this before training. |
+| Encoding | **One-hot** encoding turns categories into numbers. Normalization/standardization puts features on one scale. |
+| Class imbalance | Oversample (e.g. SMOTE), undersample, or use F1/recall instead of accuracy. |
+| Data augmentation | Create varied copies of existing data (flip/crop images) to boost data and robustness. |
+| Text prep for NLP | **Tokenization** splits text. **Stemming/lemmatization** reduce words to roots. **TF-IDF** weights important words. **N-grams** capture phrases. |
+| NLP vs computer vision | NLP = text/speech (Comprehend, Translate, Lex). Computer vision = images/video (Rekognition). |
+| Deployment strategies | **Blue/green** = switch traffic between two environments. **Canary** = small share of traffic first. **Shadow** = copy traffic, not served. **A/B** = compare two live variants. |
+| Where to run | Cloud for scale, **edge** (SageMaker Neo, IoT Greengrass) for low latency/offline, hybrid for both. |
+| Learning toys | **DeepRacer** = reinforcement learning with a car. **DeepLens** = camera for deep-learning learning projects. |
+| ML lifecycle frame | CRISP-DM style: business understanding, data, modelling, evaluation, deployment, monitoring. |
+
+### Domain 2: GenAI
+| Topic | Rule |
+|---|---|
+| Model families on Bedrock | **Claude** (Anthropic) text/multimodal, **Titan** and **Nova** (Amazon), **Llama** (Meta), Mistral, Cohere (also embeddings/rerank), AI21, Stability AI (images). |
+| Tokenization in LLMs | Text becomes tokens before embeddings. Pricing and limits count tokens. |
+| Pros of GenAI | Adaptability, speed, personalization, creativity. Cons: hallucination, nondeterminism, bias, cost, IP risk. |
+| Business metrics for GenAI | Cross-domain performance, conversion rate, average revenue per user, efficiency, customer lifetime value. Not just model accuracy. |
+| Interpretation of **LLM-as-a-judge** | A model scores another model's outputs on criteria such as correctness and faithfulness. Cheaper than human review, still verify. |
+
+### Domain 3: FM applications
+| Topic | Rule |
+|---|---|
+| Bedrock Flows / Prompt Management | Flows = visual workflow of prompts, KBs, agents. Prompt Management = versioned prompts. |
+| Bedrock Data Automation | Extracts structured data from documents, images, audio and video. |
+| Amazon Q Apps | Build small GenAI apps from conversation inside Q Business. |
+| Evaluation of RAG | Check **faithfulness/groundedness** and retrieval relevance, not only answer fluency. |
+| Kiro | Agentic IDE for spec-driven development. Q Developer remains the coding assistant answer. |
+| Inference profile / cross-region | Routes requests across Regions for throughput. Mind data residency. |
+
+### Domain 4: Responsible AI
+| Topic | Rule |
+|---|---|
+| Privacy techniques | **Differential privacy** adds noise to protect individuals. **Federated learning** trains without moving raw data. Anonymize/mask before training. |
+| Watermarking | Marks AI-generated content for provenance (Titan Image Generator adds invisible watermarks). |
+| Responsible dataset | Inclusive, diverse, balanced, curated, with documented sources. |
+| Transparency vs explainability | Transparency = how it was built and used. Explainability = why one output happened. |
+
+### Domain 5: Security and governance
+| Topic | Rule |
+|---|---|
+| Resource tagging | Tag AI resources for cost allocation, access control and governance. |
+| Model invocation logging | Turn on in Bedrock to capture prompts/responses to CloudWatch Logs or S3 for audit. |
+| Data governance strategies | Data lifecycle, logging, residency, monitoring, retention, source citation, lineage. |
+| Standards | ISO 27001 (security), **ISO 42001** (AI management), SOC, NIST AI RMF, EU AI Act (risk tiers), GDPR, HIPAA. |
+
+## 9. Weak-spot revision by exam task
+
+Priority order after a self-assessment (lowest score first). Re-read the linked sections of this sheet in this order.
+
+| Task | What to drill |
+|---|---|
+| **3.4 Evaluate FM performance** | Metric to task: ROUGE (summaries), BLEU (translation), BERTScore (semantic similarity), perplexity (fluency), F1/AUC (classification), MSE/RMSE (regression). Use human evaluation plus benchmarks, and check business outcomes (conversion, efficiency), not just model scores. |
+| **1.2 Practical AI use cases** | Match the service to the need: Rekognition, Textract, Comprehend, Transcribe, Polly, Translate, Lex vs Kendra, Personalize, Forecast, Fraud Detector. Also know when **not** to use AI (simple rules suffice, no data). |
+| **4.2 Transparent and explainable models** | Transparency = how it was built and used (Model Cards, AI Service Cards). Explainability = why one output (Clarify, SHAP). Interpretability = understandable internals. Simpler models are more explainable but may be less accurate. |
+| **5.2 Governance and compliance** | Artifact vs Audit Manager, Config, CloudTrail, Macie, Lake Formation. ISO 42001, NIST AI RMF, EU AI Act, GDPR, HIPAA. Data lineage, retention, residency. |
+| **3.1-3.3 FM design, prompting, training** | RAG vs fine-tuning vs continued pre-training, Provisioned Throughput for custom models, prompt techniques (zero/few-shot, chain-of-thought, negative prompts), temperature/top-p/top-k. |
+| **2.3 AWS GenAI infrastructure** | Bedrock vs JumpStart, Trainium vs Inferentia, Knowledge Bases, Agents, Guardrails. |
+
+## 10. Concept clarifications (frequently confused ideas)
 
 General concepts that are easy to confuse. They are original one-line rules, not questions, scenarios or answer options from any exam or course.
 
@@ -414,97 +506,7 @@ General concepts that are easy to confuse. They are original one-line rules, not
 | Bedrock latency factors | Provisioned throughput, model size and complexity, and network latency between app and model. |
 | Bedrock benefits | Lower cost and complexity, and managed access to many FMs. It does not guarantee the best accuracy and does not remove your responsibility for ethical use. |
 
-## 7b. Extra edge cases worth a last look
-
-| Edge case | Rule |
-|---|---|
-| "NOT" / "EXCEPT" / "LEAST" questions | Re-read the stem, find the three true statements, pick the false one. Mark them and recheck. |
-| "Choose two/three" | Every chosen option must independently be correct. A half-right pair scores zero. |
-| Drag-and-drop / ordering | Order by the stated axis (cost, effort, lifecycle stage). Don't reuse an item unless the stem allows it. |
-| Guardrails apply to **inputs and outputs** | They block denied topics, harmful content, PII, and can check grounding. They don't replace IAM. |
-| Fine-tuned model on Bedrock | Runs only on **Provisioned Throughput**. |
-| Base-model data privacy | Your prompts/outputs aren't used to train base FMs. |
-| RAG fixes stale knowledge | An LLM can't know events after its training cutoff. Retrieval adds current data. |
-| Overfitting vs underfitting | Great on train and poor on new data = overfit. Poor on both = underfit. |
-| Accuracy on imbalanced data | Misleading. Use precision, recall, F1. |
-| Human in the loop | Prefer it for high-stakes decisions and low-confidence predictions (A2I). |
-| Explainability tool | **Clarify** (SHAP) for features. Model Cards for documentation. |
-| Compliance reports | **Artifact** downloads AWS reports. **Audit Manager** gathers your evidence. |
-| Least privilege | The answer to most "who can access" questions: narrow IAM roles/policies, not broad admin. |
-| Encryption | At rest = KMS. In transit = TLS. Private network path = PrivateLink / VPC endpoints. |
-| Low latency + steady traffic | Real-time endpoint. Spiky/idle = serverless. Big offline = batch. |
-| Cheapest customization | Try prompt engineering first, RAG second, fine-tune only if those fail. |
-| Hallucination | Mitigate (RAG, grounding, low temperature, human review). Never "eliminate". |
-| Absolute claims | "Guarantees", "always", "eliminates all" are almost always wrong. |
-
-## 7c. Gap-fill after checking all 5 domains
-
-### Domain 1: algorithms, data prep, deployment
-| Topic | Rule |
-|---|---|
-| Algorithm to task | Linear/logistic regression and **XGBoost** = tabular; **KNN** and **decision tree / random forest** = classification/regression; **K-Means** = clustering; **PCA** = dimensionality reduction; **CNN** = images; **RNN/LSTM/transformer** = sequences/text. |
-| Ensembles | **Bagging** (random forest) reduces variance. **Boosting** (XGBoost) reduces bias by fixing prior errors. |
-| Transfer learning | Reuse a pre-trained model for a new task with less data. Fine-tuning is a form of it. |
-| Data cleaning | Handle **outliers**, missing values (**imputation**), duplicates. Do this before training. |
-| Encoding | **One-hot** encoding turns categories into numbers. Normalization/standardization puts features on one scale. |
-| Class imbalance | Oversample (e.g. SMOTE), undersample, or use F1/recall instead of accuracy. |
-| Data augmentation | Create varied copies of existing data (flip/crop images) to boost data and robustness. |
-| Text prep for NLP | **Tokenization** splits text. **Stemming/lemmatization** reduce words to roots. **TF-IDF** weights important words. **N-grams** capture phrases. |
-| NLP vs computer vision | NLP = text/speech (Comprehend, Translate, Lex). Computer vision = images/video (Rekognition). |
-| Deployment strategies | **Blue/green** = switch traffic between two environments. **Canary** = small share of traffic first. **Shadow** = copy traffic, not served. **A/B** = compare two live variants. |
-| Where to run | Cloud for scale, **edge** (SageMaker Neo, IoT Greengrass) for low latency/offline, hybrid for both. |
-| Learning toys | **DeepRacer** = reinforcement learning with a car. **DeepLens** = camera for deep-learning learning projects. |
-| ML lifecycle frame | CRISP-DM style: business understanding, data, modelling, evaluation, deployment, monitoring. |
-
-### Domain 2: GenAI
-| Topic | Rule |
-|---|---|
-| Model families on Bedrock | **Claude** (Anthropic) text/multimodal, **Titan** and **Nova** (Amazon), **Llama** (Meta), Mistral, Cohere (also embeddings/rerank), AI21, Stability AI (images). |
-| Tokenization in LLMs | Text becomes tokens before embeddings. Pricing and limits count tokens. |
-| Pros of GenAI | Adaptability, speed, personalization, creativity. Cons: hallucination, nondeterminism, bias, cost, IP risk. |
-| Business metrics for GenAI | Cross-domain performance, conversion rate, average revenue per user, efficiency, customer lifetime value. Not just model accuracy. |
-| Interpretation of **LLM-as-a-judge** | A model scores another model's outputs on criteria such as correctness and faithfulness. Cheaper than human review, still verify. |
-
-### Domain 3: FM applications
-| Topic | Rule |
-|---|---|
-| Bedrock Flows / Prompt Management | Flows = visual workflow of prompts, KBs, agents. Prompt Management = versioned prompts. |
-| Bedrock Data Automation | Extracts structured data from documents, images, audio and video. |
-| Amazon Q Apps | Build small GenAI apps from conversation inside Q Business. |
-| Evaluation of RAG | Check **faithfulness/groundedness** and retrieval relevance, not only answer fluency. |
-| Kiro | Agentic IDE for spec-driven development. Q Developer remains the coding assistant answer. |
-| Inference profile / cross-region | Routes requests across Regions for throughput. Mind data residency. |
-
-### Domain 4: Responsible AI
-| Topic | Rule |
-|---|---|
-| Privacy techniques | **Differential privacy** adds noise to protect individuals. **Federated learning** trains without moving raw data. Anonymize/mask before training. |
-| Watermarking | Marks AI-generated content for provenance (Titan Image Generator adds invisible watermarks). |
-| Responsible dataset | Inclusive, diverse, balanced, curated, with documented sources. |
-| Transparency vs explainability | Transparency = how it was built and used. Explainability = why one output happened. |
-
-### Domain 5: Security and governance
-| Topic | Rule |
-|---|---|
-| Resource tagging | Tag AI resources for cost allocation, access control and governance. |
-| Model invocation logging | Turn on in Bedrock to capture prompts/responses to CloudWatch Logs or S3 for audit. |
-| Data governance strategies | Data lifecycle, logging, residency, monitoring, retention, source citation, lineage. |
-| Standards | ISO 27001 (security), **ISO 42001** (AI management), SOC, NIST AI RMF, EU AI Act (risk tiers), GDPR, HIPAA. |
-
-## 7d. Weak-spot revision by exam task
-
-Priority order after a self-assessment (lowest score first). Re-read the linked sections of this sheet in this order.
-
-| Task | What to drill |
-|---|---|
-| **3.4 Evaluate FM performance** | Metric to task: ROUGE (summaries), BLEU (translation), BERTScore (semantic similarity), perplexity (fluency), F1/AUC (classification), MSE/RMSE (regression). Use human evaluation plus benchmarks, and check business outcomes (conversion, efficiency), not just model scores. |
-| **1.2 Practical AI use cases** | Match the service to the need: Rekognition, Textract, Comprehend, Transcribe, Polly, Translate, Lex vs Kendra, Personalize, Forecast, Fraud Detector. Also know when **not** to use AI (simple rules suffice, no data). |
-| **4.2 Transparent and explainable models** | Transparency = how it was built and used (Model Cards, AI Service Cards). Explainability = why one output (Clarify, SHAP). Interpretability = understandable internals. Simpler models are more explainable but may be less accurate. |
-| **5.2 Governance and compliance** | Artifact vs Audit Manager, Config, CloudTrail, Macie, Lake Formation. ISO 42001, NIST AI RMF, EU AI Act, GDPR, HIPAA. Data lineage, retention, residency. |
-| **3.1-3.3 FM design, prompting, training** | RAG vs fine-tuning vs continued pre-training, Provisioned Throughput for custom models, prompt techniques (zero/few-shot, chain-of-thought, negative prompts), temperature/top-p/top-k. |
-| **2.3 AWS GenAI infrastructure** | Bedrock vs JumpStart, Trainium vs Inferentia, Knowledge Bases, Agents, Guardrails. |
-
-## 7. Final-hour checklist
+## 11. Final-hour checklist
 
 - [ ] Can I name the AI service for each of: image, doc, text, speech, translate, chatbot, search, recommend, forecast, fraud?
 - [ ] RAG vs fine-tuning vs continued pre-training, with a trigger phrase for each

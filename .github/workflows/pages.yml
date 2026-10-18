@@ -2,7 +2,7 @@ name: Deploy exam simulator to GitHub Pages
 on:
   push:
     branches: [main]
-    paths: [exam-simulator/**, docs/mock-exam.md, docs/full-length-mock-exam.md]
+    paths: [exam-simulator/**, docs/mock-exam.md, docs/full-length-mock-exam.md, docs/EXAM-TRAP-SHEET.md]
   workflow_dispatch:
 permissions:
   contents: read
@@ -20,7 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 exam-simulator/build_questions.py
-      - run: mkdir _site && cp exam-simulator/index.html exam-simulator/questions.js _site/
+      - run: python3 exam-simulator/build_traps.py
+      - run: mkdir _site && cp exam-simulator/index.html exam-simulator/questions.js exam-simulator/trap-checklist.html exam-simulator/traps.js _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
